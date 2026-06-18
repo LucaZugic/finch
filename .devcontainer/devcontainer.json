@@ -1,0 +1,9 @@
+{
+  "name": "finch-dev",
+  "dockerComposeFile": ["../docker-compose.yml"],
+  "service": "dev",
+  "workspaceFolder": "/workspaces/finch",
+  // Install the locked dependency set into the image's venv on first create.
+  "postCreateCommand": "uv sync --all-extras --dev",
+  "shutdownAction": "stopCompose"
+}
