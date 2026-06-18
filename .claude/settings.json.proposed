@@ -1,0 +1,15 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "f=$(python -c 'import json,sys;print(json.load(sys.stdin).get(\"tool_input\",{}).get(\"file_path\",\"\"))'); case \"$f\" in *.py) ;; *) exit 0;; esac; uv run ruff check \"$f\" && uv run ruff format --check \"$f\" && uv run mypy && uv run pytest -m \"not integration\" -q"
+          }
+        ]
+      }
+    ]
+  }
+}
