@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+dist/
+*.egg-info/
+
+# CDK
+infra/cdk.out/
+
+# Local secrets / env — NEVER commit credentials (use Secrets Manager / .env)
+.env
+.env.*
+!.env.example
+
+# Local stack data
+.localstack/
